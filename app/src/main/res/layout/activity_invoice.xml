@@ -1,0 +1,233 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.adis.srm.sistemarepartomovil.activity.InvoiceActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="105dp"
+                android:layout_height="fill_parent"
+                android:text="Quitar"
+                android:id="@+id/tvQuitar"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical|center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="77dp"
+                android:layout_height="fill_parent"
+                android:text="Entregar"
+                android:id="@+id/tvEntregar"
+                android:layout_alignTop="@+id/tvQuitar"
+                android:layout_toRightOf="@+id/linearLayout"
+                android:layout_toEndOf="@+id/linearLayout"
+                android:onClick="onClickEntregar"
+                android:clickable="true"
+                android:gravity="center_vertical|center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:layout_width="105dp"
+                android:layout_height="fill_parent"
+                android:text="NoEntregado"
+                android:id="@+id/tvNoEntregado"
+                android:gravity="center_vertical|center_horizontal" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#ccc"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="Lista de productos"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/abc_input_method_navigation_guard" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tvCantidadLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Cantidad" />
+
+            <TextView
+                android:id="@+id/tvDescripcionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tvCantidadLabel"
+                android:layout_toEndOf="@+id/tvCantidadLabel"
+                android:layout_marginLeft="37dp"
+                android:layout_marginStart="37dp" />
+
+            <TextView
+                android:id="@+id/tvCTLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C.T."
+                android:layout_alignTop="@+id/tvDescripcionLabel"
+                android:layout_toRightOf="@+id/tvCULabel"
+                android:layout_toEndOf="@+id/tvCULabel"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C.U."
+                android:id="@+id/tvCULabel"
+                android:layout_marginLeft="47dp"
+                android:layout_marginStart="47dp"
+                android:layout_toRightOf="@+id/tvDescripcionLabel"
+                android:layout_toEndOf="@+id/tvDescripcionLabel"
+                android:layout_alignTop="@+id/tvCTLabel" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lvProductos"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tvDescuentoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descuento:-"
+                android:layout_marginLeft="58dp"
+                android:layout_marginStart="58dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tvIVALabel" />
+
+            <TextView
+                android:id="@+id/tvIVALabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IVA(13%):+"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@+id/tvDescuentoLabel"
+                android:layout_alignStart="@+id/tvDescuentoLabel" />
+
+            <TextView
+                android:id="@+id/tvTotalNetoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Neto:"
+                android:layout_below="@+id/tvIVALabel"
+                android:layout_alignLeft="@+id/tvIVALabel"
+                android:layout_alignStart="@+id/tvIVALabel" />
+
+            <TextView
+                android:id="@+id/tvSubtotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sub-total:"
+                android:layout_above="@+id/tvDescuentoLabel"
+                android:layout_alignLeft="@+id/tvDescuentoLabel"
+                android:layout_alignStart="@+id/tvDescuentoLabel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$790.00"
+                android:id="@+id/tvSubtotal"
+                android:layout_alignTop="@+id/tvSubtotalLabel"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="46dp"
+                android:layout_marginEnd="46dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$100.00"
+                android:id="@+id/tvDescuento"
+                android:layout_alignTop="@+id/tvDescuentoLabel"
+                android:layout_alignRight="@+id/tvSubtotal"
+                android:layout_alignEnd="@+id/tvSubtotal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$102.70"
+                android:id="@+id/tvIVA"
+                android:layout_below="@+id/tvDescuento"
+                android:layout_alignLeft="@+id/tvDescuento"
+                android:layout_alignStart="@+id/tvDescuento" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$792.00"
+                android:id="@+id/tvTotalNeto"
+                android:layout_below="@+id/tvIVA"
+                android:layout_alignRight="@+id/tvIVA"
+                android:layout_alignEnd="@+id/tvIVA" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>
+
