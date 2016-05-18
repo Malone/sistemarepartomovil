@@ -35,16 +35,6 @@ public class DispatchActivity extends AppCompatActivity {
 
         SugarContext.init(this);
 
-        Response.Listener<String> responseListener = new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response){
-                JsonParserPersister.parse(response);
-            }
-        };
-
-        DispatchRequest dispatchRequest = new DispatchRequest(responseListener );
-        RequestQueue queue = Volley.newRequestQueue(DispatchActivity.this);
-        queue.add(dispatchRequest);
         List<FacturaListView> facturaList = Retriever.retrieveFacturaList();
         lvInvoices = (ListView) findViewById(R.id.lvInvoices);
 
