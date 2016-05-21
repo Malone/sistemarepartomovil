@@ -1,12 +1,14 @@
 package com.adis.srm.sistemarepartomovil.parsepersist;
 
 import com.adis.srm.sistemarepartomovil.entity.Cliente;
+import com.adis.srm.sistemarepartomovil.entity.NoEntrega;
 import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
 import com.adis.srm.sistemarepartomovil.models.FacturaListView;
 import com.adis.srm.sistemarepartomovil.models.SubtotalesProducto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -93,5 +95,14 @@ public class Retriever {
                 pedido.setEstado("entregado");
                 pedido.save();
         }
+    }
+
+    public static HashMap<String, String> getTiposNoEntrega() {
+        HashMap<String, String> tiposNoEntrega = new HashMap<String, String>();
+        List<NoEntrega> noEntregaList = NoEntrega.listAll(NoEntrega.class);
+        for(NoEntrega noEntrega : noEntregaList){
+            tiposNoEntrega.put(noEntrega.getIdNoEntrega(), noEntrega.getTipo());
+        }
+        return tiposNoEntrega;
     }
 }

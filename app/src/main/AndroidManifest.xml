@@ -23,10 +23,10 @@
 
         <meta-data
             android:name="DATABASE"
-            android:value="srm004.db" />
+            android:value="srm014.db" />
         <meta-data
             android:name="VERSION"
-            android:value="18" />
+            android:value="20" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
@@ -36,7 +36,8 @@
 
         <activity android:name=".activity.InvoiceActivity" />
         <activity android:name=".activity.EditInvoiceItemActivity" />
-        <activity android:name=".activity.EntregarActivity"/>
+        <activity android:name=".activity.EntregarActivity" />
+        <activity android:name=".activity.NoEntregarActivity"></activity>
     </application>
 
 </manifest>

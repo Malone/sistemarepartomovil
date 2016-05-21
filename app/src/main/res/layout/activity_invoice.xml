@@ -65,6 +65,8 @@
                 android:layout_height="fill_parent"
                 android:text="NoEntregado"
                 android:id="@+id/tvNoEntregado"
+                android:onClick="onClickNoEntregar"
+                android:clickable="true"
                 android:gravity="center_vertical|center_horizontal" />
         </LinearLayout>
 

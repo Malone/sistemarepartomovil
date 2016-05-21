@@ -124,4 +124,10 @@ public class InvoiceActivity extends AppCompatActivity {
         intent.putExtra("invoiceNumber", numFactura);
         InvoiceActivity.this.startActivity(intent);
     }
+
+    public void onClickNoEntregar(View v){
+        Intent intent = new Intent(InvoiceActivity.this, NoEntregarActivity.class);
+        intent.putExtra("invoiceNumber", numFactura);
+        InvoiceActivity.this.startActivity(intent);
+    }
 }

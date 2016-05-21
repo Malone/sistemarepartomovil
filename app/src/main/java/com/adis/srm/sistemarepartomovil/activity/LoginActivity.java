@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.adis.srm.sistemarepartomovil.parsepersist.JsonParserPersister;
 import com.adis.srm.sistemarepartomovil.request.LoginRequest;
 import com.adis.srm.sistemarepartomovil.R;
+import com.adis.srm.sistemarepartomovil.request.NoEntregaRequest;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -65,5 +67,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Response.Listener<String> responseListener = new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                JsonParserPersister.parseNoEntrega(response);
+            }
+        };
+
+        NoEntregaRequest noEntregaRequest = new NoEntregaRequest(responseListener );
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+        queue.add(noEntregaRequest);
     }
 }

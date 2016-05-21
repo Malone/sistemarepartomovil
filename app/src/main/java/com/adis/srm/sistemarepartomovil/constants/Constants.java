@@ -13,5 +13,6 @@ public class Constants {
     public static final String JSON_CLIENTE = "cliente";
     public static final String JSON_PRODUCTOS = "productos";
     public static final String JSON_COORDENADAS = "coordenadas";
+    public static final String JSON_NO_ENTREGADO = "tipos_de_no_entrega";
 
 }

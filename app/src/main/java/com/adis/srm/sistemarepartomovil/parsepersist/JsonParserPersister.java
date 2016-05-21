@@ -2,6 +2,7 @@ package com.adis.srm.sistemarepartomovil.parsepersist;
 
 import com.adis.srm.sistemarepartomovil.constants.Constants;
 import com.adis.srm.sistemarepartomovil.entity.Cliente;
+import com.adis.srm.sistemarepartomovil.entity.NoEntrega;
 import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
 import com.adis.srm.sistemarepartomovil.entity.Repartidor;
@@ -114,6 +115,31 @@ public class JsonParserPersister {
         costoTotal = quantity.multiply(costoUnitario).setScale(2, RoundingMode.CEILING);
         return costoTotal;
 
+    }
+
+    public static void parseNoEntrega(String response){
+        try {
+            JSONObject jsonResponse = new JSONObject(response);
+            JSONArray noEntregadoArray = jsonResponse.getJSONArray(Constants.JSON_NO_ENTREGADO);
+            for(int i = 0; i < noEntregadoArray.length(); i++){
+                JSONObject noEntregadoObject = noEntregadoArray.getJSONObject(i);
+                persistNoEntregados(noEntregadoObject);
+            }
+            System.out.println();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void persistNoEntregados(JSONObject noEntregadoObject) {
+        try {
+            String idNoEntregado = noEntregadoObject.getString("id");
+            String tipo = noEntregadoObject.getString("tipo");
+            NoEntrega noEntrega = new NoEntrega(idNoEntregado, tipo);
+            noEntrega.save();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }
