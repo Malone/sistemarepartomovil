@@ -28,7 +28,8 @@
                 android:id="@+id/tvQuitar"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:gravity="center_vertical|center_horizontal" />
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="18dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +50,8 @@
                 android:layout_toEndOf="@+id/linearLayout"
                 android:onClick="onClickEntregar"
                 android:clickable="true"
-                android:gravity="center_vertical|center_horizontal" />
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="18dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,13 +63,14 @@
             android:layout_alignParentEnd="true">
 
             <TextView
-                android:layout_width="105dp"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:text="NoEntregado"
+                android:text="No Entregado"
                 android:id="@+id/tvNoEntregado"
                 android:onClick="onClickNoEntregar"
                 android:clickable="true"
-                android:gravity="center_vertical|center_horizontal" />
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="18dp" />
         </LinearLayout>
 
     </RelativeLayout>
@@ -93,53 +96,63 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/abc_input_method_navigation_guard" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/tvCantidadLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="Cantidad" />
+                android:background="@drawable/cell_shape"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Cant"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight=".23" />
 
             <TextView
                 android:id="@+id/tvDescripcionLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
                 android:text="Descripción"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/tvCantidadLabel"
                 android:layout_toEndOf="@+id/tvCantidadLabel"
-                android:layout_marginLeft="37dp"
-                android:layout_marginStart="37dp" />
+                android:background="@drawable/cell_shape"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight=".37" />
 
             <TextView
                 android:id="@+id/tvCTLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
                 android:text="C.T."
-                android:layout_alignTop="@+id/tvDescripcionLabel"
-                android:layout_toRightOf="@+id/tvCULabel"
-                android:layout_toEndOf="@+id/tvCULabel"
-                android:layout_marginLeft="32dp"
-                android:layout_marginStart="32dp" />
+                android:background="@drawable/cell_shape"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight=".2" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
                 android:text="C.U."
                 android:id="@+id/tvCULabel"
-                android:layout_marginLeft="47dp"
-                android:layout_marginStart="47dp"
+                android:background="@drawable/cell_shape"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/tvDescripcionLabel"
                 android:layout_toEndOf="@+id/tvDescripcionLabel"
-                android:layout_alignTop="@+id/tvCTLabel" />
-        </RelativeLayout>
+                android:layout_weight=".2" />
+        </LinearLayout>
 
         <ListView
             android:id="@+id/lvProductos"
@@ -157,11 +170,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Descuento:-"
-                android:layout_marginLeft="58dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginStart="58dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/tvIVALabel" />
+                android:layout_above="@+id/tvIVALabel"
+                android:layout_marginBottom="10dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tvIVALabel"
@@ -170,7 +185,9 @@
                 android:text="IVA(13%):+"
                 android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/tvDescuentoLabel"
-                android:layout_alignStart="@+id/tvDescuentoLabel" />
+                android:layout_alignStart="@+id/tvDescuentoLabel"
+                android:layout_marginBottom="10dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tvTotalNetoLabel"
@@ -179,7 +196,8 @@
                 android:text="Total Neto:"
                 android:layout_below="@+id/tvIVALabel"
                 android:layout_alignLeft="@+id/tvIVALabel"
-                android:layout_alignStart="@+id/tvIVALabel" />
+                android:layout_alignStart="@+id/tvIVALabel"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tvSubtotalLabel"
@@ -188,7 +206,9 @@
                 android:text="Sub-total:"
                 android:layout_above="@+id/tvDescuentoLabel"
                 android:layout_alignLeft="@+id/tvDescuentoLabel"
-                android:layout_alignStart="@+id/tvDescuentoLabel" />
+                android:layout_alignStart="@+id/tvDescuentoLabel"
+                android:layout_marginBottom="10dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -199,7 +219,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="46dp"
-                android:layout_marginEnd="46dp" />
+                android:layout_marginEnd="46dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -208,7 +229,9 @@
                 android:id="@+id/tvDescuento"
                 android:layout_alignTop="@+id/tvDescuentoLabel"
                 android:layout_alignRight="@+id/tvSubtotal"
-                android:layout_alignEnd="@+id/tvSubtotal" />
+                android:layout_alignEnd="@+id/tvSubtotal"
+                android:layout_marginBottom="10dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,7 +240,9 @@
                 android:id="@+id/tvIVA"
                 android:layout_below="@+id/tvDescuento"
                 android:layout_alignLeft="@+id/tvDescuento"
-                android:layout_alignStart="@+id/tvDescuento" />
+                android:layout_alignStart="@+id/tvDescuento"
+                android:layout_marginBottom="10dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -226,7 +251,8 @@
                 android:id="@+id/tvTotalNeto"
                 android:layout_below="@+id/tvIVA"
                 android:layout_alignRight="@+id/tvIVA"
-                android:layout_alignEnd="@+id/tvIVA" />
+                android:layout_alignEnd="@+id/tvIVA"
+                android:textSize="18dp" />
         </RelativeLayout>
 
 

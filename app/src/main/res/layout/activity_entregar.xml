@@ -33,38 +33,42 @@
             android:layout_gravity="center" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/relativeLayout">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout2">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
-                android:text="ID Pedido"
-                android:id="@+id/tvIdPedidoLabel" />
+                android:text="ID Pedido :"
+                android:id="@+id/tvIdPedidoLabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:layout_marginBottom="7dp"
+                android:textSize="18dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvIdPedido"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="81dp"
-                android:layout_marginEnd="81dp"
-                android:text="3425146" />
-        </RelativeLayout>
+                android:text="3425146"
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,24 +78,28 @@
             android:id="@+id/linearLayout3">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
-                android:text="No Factura"
-                android:id="@+id/tvNumFacturaLabel" />
+                android:text="No Factura :"
+                android:id="@+id/tvNumFacturaLabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="112256"
                 android:id="@+id/tvNumFactura"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="83dp"
-                android:layout_marginEnd="83dp" />
-        </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,24 +108,28 @@
             android:layout_alignParentStart="true">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="Neto:"
-                android:id="@+id/tvNetoLabel" />
+                android:id="@+id/tvNetoLabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="$12390"
                 android:id="@+id/tvNeto"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="61dp"
-                android:layout_marginEnd="61dp" />
-        </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,24 +139,28 @@
             android:id="@+id/linearLayout8">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="IVA:"
-                android:id="@+id/tvIVALabel" />
+                android:id="@+id/tvIVALabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="$2.33"
                 android:id="@+id/tvIVA"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="61dp"
-                android:layout_marginEnd="61dp" />
-        </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp"/>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,24 +170,28 @@
             android:id="@+id/linearLayout7">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
-                android:text="Total"
-                android:id="@+id/tvTotalLabel" />
+                android:text="Total :"
+                android:id="@+id/tvTotalLabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="$9499"
                 android:id="@+id/tvTotal"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="71dp"
-                android:layout_marginEnd="71dp" />
-        </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -181,24 +201,28 @@
             android:id="@+id/linearLayout6">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="Dirección"
-                android:id="@+id/tvDireccionLabel" />
+                android:id="@+id/tvDireccionLabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="Calle A super Colonia "
                 android:id="@+id/tvDireccion"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="68dp"
-                android:layout_marginEnd="68dp" />
-        </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -208,24 +232,28 @@
             android:id="@+id/linearLayout5">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="DUI"
-                android:id="@+id/tvDUILabel" />
+                android:id="@+id/tvDUILabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="092746-1"
                 android:id="@+id/tvDUI"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="72dp"
-                android:layout_marginEnd="72dp" />
-        </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -235,23 +263,27 @@
             android:id="@+id/linearLayout4">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="Cliente"
-                android:id="@+id/tvClienteLabel" />
+                android:id="@+id/tvClienteLabel"
+                android:layout_weight=".5"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_marginBottom="7dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="Jean Genet"
                 android:id="@+id/tvCliente"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="75dp"
-                android:layout_marginEnd="75dp" />
-        </RelativeLayout>
-    </RelativeLayout>
+                android:layout_weight=".5"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
 

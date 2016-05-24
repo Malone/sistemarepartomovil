@@ -23,7 +23,7 @@
 
         <meta-data
             android:name="DATABASE"
-            android:value="srm015.db" />
+            android:value="srm023.db" />
         <meta-data
             android:name="VERSION"
             android:value="20" />
