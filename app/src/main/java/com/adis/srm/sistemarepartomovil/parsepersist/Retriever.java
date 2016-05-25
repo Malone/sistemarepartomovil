@@ -18,7 +18,8 @@ public class Retriever {
 
     public static List<FacturaListView> retrieveFacturaList(){
 
-        List<Pedido> pedidosList = Pedido.listAll(Pedido.class);
+        //List<Pedido> pedidosList = Pedido.listAll(Pedido.class);
+        List<Pedido> pedidosList = Pedido.find(Pedido.class, "estado = ?", "no entregado");
         List<FacturaListView> facturaList = new ArrayList<FacturaListView>();
 
         for(Pedido pedido : pedidosList){
@@ -91,9 +92,10 @@ public class Retriever {
     public static void entregarPedido(String idPedido){
         List<Pedido> pedidoList = Pedido.listAll(Pedido.class);
         for(Pedido pedido : pedidoList){
-            if(idPedido.equalsIgnoreCase(String.valueOf(pedido.getNumeroPedido())));
+            if(idPedido.equalsIgnoreCase(String.valueOf(pedido.getNumeroPedido()))) {
                 pedido.setEstado("entregado");
                 pedido.save();
+            }
         }
     }
 

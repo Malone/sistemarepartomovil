@@ -6,14 +6,15 @@ import com.adis.srm.sistemarepartomovil.entity.NoEntrega;
 import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
 import com.adis.srm.sistemarepartomovil.entity.Repartidor;
+import com.adis.srm.sistemarepartomovil.entity.ReporteNoEntrega;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.List;
 
 /**
  * Created by Equipo on 06/05/2016.
@@ -22,6 +23,7 @@ public class JsonParserPersister {
 
     public static void parse(String response){
         try {
+            bulkDatabase();
             JSONObject jsonResponse = new JSONObject(response);
             JSONObject repartidorJson = jsonResponse.getJSONObject(Constants.JSON_REPARTIDOR);
             Repartidor repartidor = persistRepartidor(repartidorJson);
@@ -140,6 +142,21 @@ public class JsonParserPersister {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void bulkDatabase(){
+        List<Producto> productos = Producto.listAll(Producto.class);
+        Producto.deleteAll(Producto.class);
+        List<Cliente> cliente = Cliente.listAll(Cliente.class);
+        Cliente.deleteAll(Cliente.class);
+        List<Pedido> pedido = Pedido.listAll(Pedido.class);
+        Pedido.deleteAll(Pedido.class);
+        List<NoEntrega> noEntrega = NoEntrega.listAll(NoEntrega.class);
+        NoEntrega.deleteAll(NoEntrega.class);
+        List<Repartidor> repartidors = Repartidor.listAll(Repartidor.class);
+        Repartidor.deleteAll(Repartidor.class);
+        List<ReporteNoEntrega> reporteNoEntregas = ReporteNoEntrega.listAll(ReporteNoEntrega.class);
+        ReporteNoEntrega.deleteAll(ReporteNoEntrega.class);
     }
 
 }
