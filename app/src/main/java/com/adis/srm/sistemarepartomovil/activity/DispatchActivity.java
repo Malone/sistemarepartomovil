@@ -2,27 +2,25 @@ package com.adis.srm.sistemarepartomovil.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.adis.srm.sistemarepartomovil.entity.Pedido;
-import com.adis.srm.sistemarepartomovil.models.FacturaListView;
-import com.adis.srm.sistemarepartomovil.parsepersist.JsonParserPersister;
-import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
-import com.adis.srm.sistemarepartomovil.request.DispatchRequest;
 import com.adis.srm.sistemarepartomovil.R;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
+import com.adis.srm.sistemarepartomovil.models.FacturaListView;
+import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
 import com.orm.SugarContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DispatchActivity extends AppCompatActivity {
@@ -37,11 +35,26 @@ public class DispatchActivity extends AppCompatActivity {
 
         List<FacturaListView> facturaList = Retriever.retrieveFacturaList();
         lvInvoices = (ListView) findViewById(R.id.lvInvoices);
+        final EditText etSearchInvoice = (EditText) findViewById(R.id.edSearchInvoice);
+
+        etSearchInvoice.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                List<FacturaListView> facturaListView = new ArrayList<FacturaListView>();
+                if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
+                        keyCode == EditorInfo.IME_ACTION_DONE ||
+                        event.getAction() == KeyEvent.ACTION_DOWN &&
+                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                    facturaListView.add(Retriever.getFacturaViewByNumFactura(String.valueOf(etSearchInvoice.getText())));
+                    InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, facturaListView);
+                    lvInvoices.setAdapter(invoiceAdapter);
+                }
+                return false;
+            }
+        });
 
         InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, facturaList);
         lvInvoices.setAdapter(invoiceAdapter);
-
-
     }
 
 

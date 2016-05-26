@@ -66,7 +66,8 @@ public class JsonParserPersister {
             String fechaSolicitud = pedidoJson.getString("fecha_solicitud");
             String numeroFactura = pedidoJson.getString("numero_factura");
             String estado = pedidoJson.getString("estado");
-            pedido = new Pedido(numeroPedido, fechaSolicitud, numeroFactura, estado);
+            Long correlativo = pedidoJson.getLong("correlativo");
+            pedido = new Pedido(numeroPedido, fechaSolicitud, numeroFactura, estado, correlativo);
             pedido.save();
         }catch(JSONException e){
             e.printStackTrace();
@@ -127,7 +128,6 @@ public class JsonParserPersister {
                 JSONObject noEntregadoObject = noEntregadoArray.getJSONObject(i);
                 persistNoEntregados(noEntregadoObject);
             }
-            System.out.println();
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -1,9 +1,6 @@
 package com.adis.srm.sistemarepartomovil.entity;
 
 import com.orm.SugarRecord;
-import com.orm.dsl.Unique;
-
-import java.util.Date;
 
 /**
  * Created by Equipo on 06/05/2016.
@@ -14,15 +11,18 @@ public class Pedido extends SugarRecord {
     String fechaSolicitud;
     String numeroFactura;
     String estado;
+    Long correlativo;
 
     public Pedido() {
     }
 
-    public Pedido(Long numeroPedido, String fechaSolicitud, String numeroFactura, String estado) {
+    public Pedido(Long numeroPedido, String fechaSolicitud, String numeroFactura,
+                  String estado, Long correlativo) {
         this.numeroPedido = numeroPedido;
         this.fechaSolicitud = fechaSolicitud;
         this.numeroFactura = numeroFactura;
         this.estado = estado;
+        this.correlativo = correlativo;
     }
 
     public Long getNumeroPedido() {
@@ -55,5 +55,13 @@ public class Pedido extends SugarRecord {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Long getCorrelativo() {
+        return correlativo;
+    }
+
+    public void setCorrelativo(Long correlativo) {
+        this.correlativo = correlativo;
     }
 }

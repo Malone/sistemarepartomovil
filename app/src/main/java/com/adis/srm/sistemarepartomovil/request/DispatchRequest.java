@@ -1,6 +1,5 @@
 package com.adis.srm.sistemarepartomovil.request;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -9,7 +8,7 @@ import com.android.volley.toolbox.StringRequest;
  */
 public class DispatchRequest extends StringRequest {
 
-    private static final String DISPATCH_REQUEST_URL = "https://api.myjson.com/bins/4p6y2";
+    private static final String DISPATCH_REQUEST_URL = "https://api.myjson.com/bins/m4tg";
 
 
     public DispatchRequest(Response.Listener<String> listener){

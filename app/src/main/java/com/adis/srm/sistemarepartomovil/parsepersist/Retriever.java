@@ -6,6 +6,8 @@ import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
 import com.adis.srm.sistemarepartomovil.models.FacturaListView;
 import com.adis.srm.sistemarepartomovil.models.SubtotalesProducto;
+import com.orm.query.Condition;
+import com.orm.query.Select;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +21,11 @@ public class Retriever {
     public static List<FacturaListView> retrieveFacturaList(){
 
         //List<Pedido> pedidosList = Pedido.listAll(Pedido.class);
-        List<Pedido> pedidosList = Pedido.find(Pedido.class, "estado = ?", "no entregado");
+        //List<Pedido> pedidosList = Pedido.find(Pedido.class, "estado = ?", "no entregado");
+        List<Pedido> pedidosList = Select.from(Pedido.class)
+                .where(Condition.prop("estado").eq("no entregado"))
+                .orderBy("correlativo")
+                .list();
         List<FacturaListView> facturaList = new ArrayList<FacturaListView>();
 
         for(Pedido pedido : pedidosList){
@@ -36,6 +42,26 @@ public class Retriever {
         }
         return facturaList;
     }
+
+    public static FacturaListView getFacturaViewByNumFactura(String numFactura){
+        List<Pedido> pedidoList = Pedido.listAll(Pedido.class);
+        FacturaListView facturaListView = new FacturaListView();
+        for(Pedido pedido : pedidoList){
+            if(numFactura.equalsIgnoreCase(pedido.getNumeroFactura())){
+                facturaListView.setNumPedido(String.valueOf(pedido.getNumeroPedido()));
+                facturaListView.setFactura(pedido.getNumeroFactura());
+                List<Cliente> clientes = Cliente.find(Cliente.class, "pedido = ?", String.valueOf(pedido.getId()));
+                for(Cliente cliente : clientes){
+                    facturaListView.setCliente(cliente.getName());
+                    facturaListView.setDireccion(cliente.getDireccion());
+                    facturaListView.setTelefono(cliente.getTelefono());
+                }
+                break;
+            }
+        }
+        return facturaListView;
+    }
+
 
     public static List<Producto> getProductoByInvoiceNumber(String numFactura) {
         List<Producto> productoList = new ArrayList<Producto>();
