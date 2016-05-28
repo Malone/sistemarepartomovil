@@ -59,6 +59,7 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
                 reporteNoEntrega.setNumFactura(numFactura);
                 reporteNoEntrega.setMotivo(etMotivo.getText().toString());
                 reporteNoEntrega.save();
+                Retriever.procesarPedido(numFactura, "no entregado");
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoEntregarActivity.this);
                 builder.setMessage("Incidente Reportado")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener(){

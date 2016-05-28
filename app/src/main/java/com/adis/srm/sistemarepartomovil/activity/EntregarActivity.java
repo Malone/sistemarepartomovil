@@ -56,7 +56,7 @@ public class EntregarActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Retriever.entregarPedido(idPedido);
+                Retriever.procesarPedido(numFactura,"entregado");
                 AlertDialog.Builder builder = new AlertDialog.Builder(EntregarActivity.this);
                 builder.setMessage("Pedido entregado")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener(){

@@ -23,7 +23,6 @@ public class JsonParserPersister {
 
     public static void parse(String response){
         try {
-            bulkDatabase();
             JSONObject jsonResponse = new JSONObject(response);
             JSONObject repartidorJson = jsonResponse.getJSONObject(Constants.JSON_REPARTIDOR);
             Repartidor repartidor = persistRepartidor(repartidorJson);
@@ -122,6 +121,7 @@ public class JsonParserPersister {
 
     public static void parseNoEntrega(String response){
         try {
+            bulkDatabase();
             JSONObject jsonResponse = new JSONObject(response);
             JSONArray noEntregadoArray = jsonResponse.getJSONArray(Constants.JSON_NO_ENTREGADO);
             for(int i = 0; i < noEntregadoArray.length(); i++){

@@ -32,7 +32,9 @@
                 android:width="300dp"
                 android:textIsSelectable="false"
                 android:textSize="18dp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:backgroundTint="#0000ff"
+                android:textCursorDrawable="@drawable/color_cursor"/>
 
             <ImageView
                 android:layout_width="29dp"
