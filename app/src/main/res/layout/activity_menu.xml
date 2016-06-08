@@ -170,6 +170,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:onClick="sincronizarOnClick"
         android:padding="5dip"
         android:background="#dbd8d8"
         android:layout_marginLeft="20dp"

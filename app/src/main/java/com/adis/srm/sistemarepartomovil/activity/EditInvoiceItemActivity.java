@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.adis.srm.sistemarepartomovil.R;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
+import com.adis.srm.sistemarepartomovil.entity.TransaccionItem;
 import com.adis.srm.sistemarepartomovil.parsepersist.JsonParserPersister;
 import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
 
@@ -52,6 +53,7 @@ public class EditInvoiceItemActivity extends AppCompatActivity {
             public void onClick(View v){
                 Long cantidad = Long.valueOf(etCantidad.getText().toString());
                 modifyCTIVA(cantidad, producto);
+                registrarModificacion(cantidad, producto, numFactura);
                 finish();
                 startActivity(getIntent());
             }
@@ -81,6 +83,14 @@ public class EditInvoiceItemActivity extends AppCompatActivity {
                         .show();
             }
         });
+    }
+
+    private void registrarModificacion(Long cantidad, Producto producto, String numFactura) {
+        TransaccionItem transaccionItem = new TransaccionItem();
+        transaccionItem.setNumFactura(numFactura);
+        transaccionItem.setCantidad(cantidad);
+        transaccionItem.setNumProducto(producto.getIdProducto());
+        transaccionItem.save();
     }
 
     private void modifyCTIVA(Long cantidad, Producto producto){

@@ -8,16 +8,16 @@ import com.orm.SugarRecord;
 public class ReporteNoEntrega extends SugarRecord {
 
     String idNoEntrega;
-    String numFactura;
     String motivo;
+    Pedido pedido;
 
     public ReporteNoEntrega() {
     }
 
-    public ReporteNoEntrega(String idNoEntrega, String numFactura, String motivo) {
+    public ReporteNoEntrega(String idNoEntrega, String motivo, Pedido pedido) {
         this.idNoEntrega = idNoEntrega;
-        this.numFactura = numFactura;
         this.motivo = motivo;
+        this.pedido = pedido;
     }
 
     public String getIdNoEntrega() {
@@ -28,19 +28,19 @@ public class ReporteNoEntrega extends SugarRecord {
         this.idNoEntrega = idNoEntrega;
     }
 
-    public String getNumFactura() {
-        return numFactura;
-    }
-
-    public void setNumFactura(String numFactura) {
-        this.numFactura = numFactura;
-    }
-
     public String getMotivo() {
         return motivo;
     }
 
     public void setMotivo(String motivo) {
         this.motivo = motivo;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 }

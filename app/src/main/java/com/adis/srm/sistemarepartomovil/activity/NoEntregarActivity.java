@@ -2,9 +2,9 @@ package com.adis.srm.sistemarepartomovil.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.adis.srm.sistemarepartomovil.R;
+import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.ReporteNoEntrega;
 import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
 
@@ -28,6 +29,8 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
     String idNoEntrega;
     HashMap<String, String> tiposKeyValue = new HashMap<String, String>();
     String numFactura;
+    String numPedido;
+    Pedido pedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
         Button btnReportar = (Button) findViewById(R.id.btnReportar);
         TextView tvNoFactura = (TextView) findViewById(R.id.tvNoFactura);
         Intent intent = getIntent();
+        pedido = (Pedido) intent.getExtras().getSerializable("pedido");
         numFactura = intent.getStringExtra("invoiceNumber");
         tvNoFactura.setText(numFactura);
         final EditText etMotivo = (EditText) findViewById(R.id.etMotivo);
@@ -56,8 +60,8 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
             public void onClick(View view) {
                 ReporteNoEntrega reporteNoEntrega = new ReporteNoEntrega();
                 reporteNoEntrega.setIdNoEntrega(idNoEntrega);
-                reporteNoEntrega.setNumFactura(numFactura);
                 reporteNoEntrega.setMotivo(etMotivo.getText().toString());
+                reporteNoEntrega.setPedido(pedido);
                 reporteNoEntrega.save();
                 Retriever.procesarPedido(numFactura, "no entregado");
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoEntregarActivity.this);

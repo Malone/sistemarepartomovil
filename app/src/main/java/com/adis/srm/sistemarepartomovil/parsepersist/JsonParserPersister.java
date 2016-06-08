@@ -2,7 +2,7 @@ package com.adis.srm.sistemarepartomovil.parsepersist;
 
 import com.adis.srm.sistemarepartomovil.constants.Constants;
 import com.adis.srm.sistemarepartomovil.entity.Cliente;
-import com.adis.srm.sistemarepartomovil.entity.NoEntrega;
+import com.adis.srm.sistemarepartomovil.entity.TipoNoEntrega;
 import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
 import com.adis.srm.sistemarepartomovil.entity.Repartidor;
@@ -137,8 +137,8 @@ public class JsonParserPersister {
         try {
             String idNoEntregado = noEntregadoObject.getString("id");
             String tipo = noEntregadoObject.getString("tipo");
-            NoEntrega noEntrega = new NoEntrega(idNoEntregado, tipo);
-            noEntrega.save();
+            TipoNoEntrega tipoNoEntrega = new TipoNoEntrega(idNoEntregado, tipo);
+            tipoNoEntrega.save();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -151,8 +151,8 @@ public class JsonParserPersister {
         Cliente.deleteAll(Cliente.class);
         List<Pedido> pedido = Pedido.listAll(Pedido.class);
         Pedido.deleteAll(Pedido.class);
-        List<NoEntrega> noEntrega = NoEntrega.listAll(NoEntrega.class);
-        NoEntrega.deleteAll(NoEntrega.class);
+        List<TipoNoEntrega> tipoNoEntrega = TipoNoEntrega.listAll(TipoNoEntrega.class);
+        TipoNoEntrega.deleteAll(TipoNoEntrega.class);
         List<Repartidor> repartidors = Repartidor.listAll(Repartidor.class);
         Repartidor.deleteAll(Repartidor.class);
         List<ReporteNoEntrega> reporteNoEntregas = ReporteNoEntrega.listAll(ReporteNoEntrega.class);

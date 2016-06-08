@@ -2,8 +2,8 @@ package com.adis.srm.sistemarepartomovil.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.adis.srm.sistemarepartomovil.R;
+import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
 import com.adis.srm.sistemarepartomovil.models.SubtotalesProducto;
 import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
@@ -22,6 +23,8 @@ public class InvoiceActivity extends AppCompatActivity {
 
     ListView lvProductos;
     String numFactura;
+    String numPedido;
+    Pedido pedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class InvoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_invoice);
         Intent intent = getIntent();
         numFactura = intent.getStringExtra("invoiceNumber");
+        numPedido = intent.getStringExtra("numPedido");
+        pedido = (Pedido) intent.getExtras().getSerializable("pedido");
+
         List<Producto> productoList = Retriever.getProductoByInvoiceNumber(numFactura);
         SubtotalesProducto subtotalesProductoList = Retriever.getSubtotales(productoList);
 
@@ -127,7 +133,7 @@ public class InvoiceActivity extends AppCompatActivity {
 
     public void onClickNoEntregar(View v){
         Intent intent = new Intent(InvoiceActivity.this, NoEntregarActivity.class);
-        intent.putExtra("invoiceNumber", numFactura);
+        intent.putExtra("pedido", pedido);
         InvoiceActivity.this.startActivity(intent);
     }
 }

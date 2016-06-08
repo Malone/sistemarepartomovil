@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.adis.srm.sistemarepartomovil.R;
+import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.models.FacturaListView;
 import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
 import com.orm.SugarContext;
@@ -42,15 +43,15 @@ public class DispatchActivity extends AppCompatActivity {
             public boolean onKey(View view, int keyCode, KeyEvent event) {
                 List<FacturaListView> facturaListView = new ArrayList<FacturaListView>();
                 if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
-                        keyCode == EditorInfo.IME_ACTION_DONE ||
-                        event.getAction() == KeyEvent.ACTION_DOWN &&
-                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                    keyCode == EditorInfo.IME_ACTION_DONE ||
+                    event.getAction() == KeyEvent.ACTION_DOWN &&
+                    event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     if(!"".equalsIgnoreCase(String.valueOf(etSearchInvoice.getText()))){
                         FacturaListView facturaView = Retriever.getFacturaViewByNumFactura(String.valueOf(etSearchInvoice.getText()));
                         facturaListView.add(facturaView);
                     }
                     else{
-                        facturaListView=  Retriever.retrieveFacturaList();
+                        facturaListView =  Retriever.retrieveFacturaList();
                     }
                     InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, facturaListView);
                     lvInvoices.setAdapter(invoiceAdapter);
@@ -97,7 +98,10 @@ public class DispatchActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(DispatchActivity.this, InvoiceActivity.class);
+                            Pedido pedido = Retriever.getPedidoById(facturaList.get(innerPosition).getNumPedido());
                             intent.putExtra("invoiceNumber", facturaList.get(innerPosition).getFactura());
+                            intent.putExtra("idPedido", facturaList.get(innerPosition).getNumPedido());
+                            intent.putExtra("pedido", pedido);
                             DispatchActivity.this.startActivity(intent);
                         }
                     });
@@ -127,9 +131,9 @@ public class DispatchActivity extends AppCompatActivity {
             public boolean onKey(View view, int keyCode, KeyEvent event) {
                 List<FacturaListView> facturaListView = new ArrayList<FacturaListView>();
                 if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
-                        keyCode == EditorInfo.IME_ACTION_DONE ||
-                        event.getAction() == KeyEvent.ACTION_DOWN &&
-                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                    keyCode == EditorInfo.IME_ACTION_DONE ||
+                    event.getAction() == KeyEvent.ACTION_DOWN &&
+                    event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     if(!"".equalsIgnoreCase(String.valueOf(etSearchInvoice.getText()))){
                         FacturaListView facturaView = Retriever.getFacturaViewByNumFactura(String.valueOf(etSearchInvoice.getText()));
                         facturaListView.add(facturaView);

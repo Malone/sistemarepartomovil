@@ -23,10 +23,10 @@
 
         <meta-data
             android:name="DATABASE"
-            android:value="srm024.db" />
+            android:value="srm028.db" />
         <meta-data
             android:name="VERSION"
-            android:value="21" />
+            android:value="25" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />

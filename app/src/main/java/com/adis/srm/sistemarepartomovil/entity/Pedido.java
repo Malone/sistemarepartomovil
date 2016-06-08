@@ -2,10 +2,12 @@ package com.adis.srm.sistemarepartomovil.entity;
 
 import com.orm.SugarRecord;
 
+import java.io.Serializable;
+
 /**
  * Created by Equipo on 06/05/2016.
  */
-public class Pedido extends SugarRecord {
+public class Pedido extends SugarRecord implements Serializable{
 
     Long numeroPedido;
     String fechaSolicitud;
