@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class SynchronizationRequest extends StringRequest {
 
-    private static final String LOGIN_REQUEST_URL = "http://192.168.0.112:8081/restapisrv/webapi/syncronize";
+    private static final String LOGIN_REQUEST_URL = "http://192.168.0.113:8081/restapisrv/webapi/syncronize";
     private Map<String, String> params;
 
     public SynchronizationRequest(String json, Response.Listener<String> listener){
@@ -27,15 +27,15 @@ public class SynchronizationRequest extends StringRequest {
         return params;
     }
 
-    @Override
+    /*@Override
     public String getBodyContentType() {
-        return "application/json";
-    }
+        return "application/json;charset=UTF-8";
+    }*/
 
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
-        Map<String, String> pars = new HashMap<String, String>();
-        pars.put("Content-Type", "application/json");
+        HashMap<String, String> pars = new HashMap<String, String>();
+        pars.put("Content-Type", "application/json; charset=utf-8");
         return pars;
     }
 

@@ -1,24 +1,30 @@
 package com.adis.srm.sistemarepartomovil.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adis.srm.sistemarepartomovil.R;
 import com.adis.srm.sistemarepartomovil.entity.Pedido;
 import com.adis.srm.sistemarepartomovil.models.FacturaListView;
 import com.adis.srm.sistemarepartomovil.parsepersist.Retriever;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.orm.SugarContext;
 
 import java.util.ArrayList;
@@ -36,6 +42,8 @@ public class DispatchActivity extends AppCompatActivity {
 
         List<FacturaListView> facturaList = Retriever.retrieveFacturaList();
         lvInvoices = (ListView) findViewById(R.id.lvInvoices);
+        Button btnScan = (Button) findViewById(R.id.btnScan);
+        final Activity activity = this;
         final EditText etSearchInvoice = (EditText) findViewById(R.id.edSearchInvoice);
 
         etSearchInvoice.setOnKeyListener(new View.OnKeyListener() {
@@ -62,8 +70,37 @@ public class DispatchActivity extends AppCompatActivity {
 
         InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, facturaList);
         lvInvoices.setAdapter(invoiceAdapter);
+
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Scan");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
+            }
+        });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Log.d("MainActivity", "Cancelled scan");
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Log.d("MainActivity", "Scanned");
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 
     public class InvoiceAdapter extends ArrayAdapter{
         private List<FacturaListView> facturaList;
