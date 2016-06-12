@@ -8,7 +8,7 @@ import com.android.volley.toolbox.StringRequest;
  */
 public class DispatchRequest extends StringRequest {
 
-    private static final String DISPATCH_REQUEST_URL = "https://api.myjson.com/bins/3jyb4";
+    private static final String DISPATCH_REQUEST_URL = "https://api.myjson.com/bins/2pcxo";
 
 
     public DispatchRequest(Response.Listener<String> listener){

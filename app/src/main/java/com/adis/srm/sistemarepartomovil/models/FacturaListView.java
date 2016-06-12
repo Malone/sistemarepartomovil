@@ -1,9 +1,11 @@
 package com.adis.srm.sistemarepartomovil.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Equipo on 10/05/2016.
  */
-public class FacturaListView {
+public class FacturaListView implements Serializable{
     String numPedido;
     String factura;
     String cliente;

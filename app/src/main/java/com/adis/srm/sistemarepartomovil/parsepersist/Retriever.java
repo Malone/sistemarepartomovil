@@ -58,6 +58,7 @@ public class Retriever {
                     facturaListView.setCliente(cliente.getName());
                     facturaListView.setDireccion(cliente.getDireccion());
                     facturaListView.setTelefono(cliente.getTelefono());
+                    facturaListView.setDui(cliente.getDui());
                 }
                 break;
             }

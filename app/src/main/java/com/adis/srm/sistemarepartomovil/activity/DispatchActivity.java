@@ -32,6 +32,9 @@ import java.util.List;
 
 public class DispatchActivity extends AppCompatActivity {
     private ListView lvInvoices;
+    private boolean isScanned = false;
+    List<FacturaListView> scannedFacturaListView;
+    FacturaListView scannedFacturaView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,7 @@ public class DispatchActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        isScanned = true;
         if(result != null) {
             if(result.getContents() == null) {
                 Log.d("MainActivity", "Cancelled scan");
@@ -95,6 +99,11 @@ public class DispatchActivity extends AppCompatActivity {
             } else {
                 Log.d("MainActivity", "Scanned");
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                scannedFacturaListView = new ArrayList<FacturaListView>();
+                scannedFacturaView = Retriever.getFacturaViewByNumFactura(result.getContents());
+                scannedFacturaListView.add(scannedFacturaView);
+                InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, scannedFacturaListView);
+                lvInvoices.setAdapter(invoiceAdapter);
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
@@ -187,6 +196,26 @@ public class DispatchActivity extends AppCompatActivity {
 
         InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, facturaList);
         lvInvoices.setAdapter(invoiceAdapter);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if(scannedFacturaView != null) {
+            outState.putSerializable("scannedInvoice", scannedFacturaView);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        scannedFacturaView = (FacturaListView) savedInstanceState.getSerializable("scannedInvoice");
+        if(scannedFacturaView != null) {
+            List<FacturaListView> scannedFacturaListView = new ArrayList<FacturaListView>();
+            scannedFacturaListView.add(scannedFacturaView);
+            InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(), R.layout.row_invoice, scannedFacturaListView);
+            lvInvoices.setAdapter(invoiceAdapter);
+        }
     }
 }
 
