@@ -12,15 +12,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginActivity">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MenuActivity" />
-        <activity android:name=".activity.DispatchActivity" />
+        <activity
+            android:name=".activity.MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DispatchActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="DATABASE"
@@ -35,10 +41,18 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.adis.srm.sistemarepartomovil.entity" />
 
-        <activity android:name=".activity.InvoiceActivity" />
-        <activity android:name=".activity.EditInvoiceItemActivity" />
-        <activity android:name=".activity.EntregarActivity" />
-        <activity android:name=".activity.NoEntregarActivity"></activity>
+        <activity
+            android:name=".activity.InvoiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EditInvoiceItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EntregarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NoEntregarActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

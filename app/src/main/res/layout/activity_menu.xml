@@ -3,198 +3,205 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MenuActivity"
-    android:orientation="vertical"
-    android:gravity="center_vertical|center_horizontal"
+    android:background="@color/appBackground"
     android:baselineAligned="false"
-    android:background="#c1bfbf">
-
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    tools:context=".activity.MenuActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dip"
-        android:background="#dbd8d8"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginTop="5dp"
+        android:background="@color/list_item_background"
+        android:orientation="horizontal"
+        android:padding="5dip">
 
 
-            <ImageView
-                android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:id="@+id/imageView1"
-                android:src="@drawable/expense"
-                android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/expense" />
 
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Pedido"
-                android:textSize="23dp"
-                android:id="@+id/textView1"
-                android:layout_gravity="center"
-                android:gravity="center_vertical|center_horizontal"
-                android:paddingLeft="30dp" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Pedido"
+            android:textColor="@color/standardTextColor"
+            android:textSize="23dp" />
 
     </LinearLayout>
-    <LinearLayout android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#dbd8d8"
-        android:orientation="horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/list_item_background"
+        android:orientation="horizontal"
         android:padding="5dp">
 
 
-            <ImageView
-                android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:id="@+id/imageView2"
-                android:src="@drawable/cash_sell"
-                android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/cash_sell" />
 
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Venta Directa"
-                android:textSize="23dp"
-                android:id="@+id/tvCantidadLabel"
-                android:layout_gravity="center"
-                android:gravity="center_vertical|center_horizontal"
-                android:paddingLeft="30dp" />
+        <TextView
+            android:id="@+id/tvCantidadLabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Venta Directa"
+            android:textColor="@color/standardTextColor"
+            android:textSize="23dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/Despatch"
-        android:onClick="despatchOnClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/list_item_background"
+        android:onClick="despatchOnClick"
         android:orientation="horizontal"
-        android:background="#dbd8d8"
         android:padding="5dp">
 
 
-            <ImageView
-                android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:id="@+id/imageView3"
-                android:src="@drawable/delivery"
-                android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/delivery" />
 
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Despacho"
-                android:textSize="23dp"
-                android:id="@+id/tvDescripcionLabel"
-                android:layout_gravity="center"
-                android:gravity="center_vertical|center_horizontal"
-                android:paddingLeft="30dp" />
+        <TextView
+            android:id="@+id/tvDescripcionLabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Despacho"
+            android:textColor="@color/standardTextColor"
+            android:textSize="23dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dip"
-        android:background="#dbd8d8"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginTop="5dp"
+        android:background="@color/list_item_background"
+        android:orientation="horizontal"
+        android:padding="5dip">
 
 
-            <ImageView
-                android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:id="@+id/imageView4"
-                android:src="@drawable/sell"
-                android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/sell" />
 
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Devolución"
-                android:textSize="23dp"
-                android:id="@+id/textView4"
-                android:layout_gravity="center"
-                android:gravity="center_vertical|center_horizontal"
-                android:paddingLeft="30dp" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Devolución"
+            android:textColor="@color/standardTextColor"
+            android:textSize="23dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:padding="5dip"
-        android:background="#dbd8d8"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginTop="5dp"
+        android:background="@color/list_item_background"
+        android:orientation="horizontal"
+        android:padding="5dip">
 
 
-            <ImageView
-                android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:id="@+id/imageView5"
-                android:src="@drawable/coins_money_stack"
-                android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/coins_money_stack" />
 
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Gasto"
-                android:textSize="23dp"
-                android:id="@+id/tvDescuentoLabel"
-                android:layout_gravity="center"
-                android:gravity="center_vertical|center_horizontal"
-                android:paddingLeft="30dp" />
+        <TextView
+            android:id="@+id/tvDescuentoLabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Gasto"
+            android:textColor="@color/standardTextColor"
+            android:textSize="23dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/list_item_background"
         android:onClick="sincronizarOnClick"
-        android:padding="5dip"
-        android:background="#dbd8d8"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="0dp">
+        android:orientation="horizontal"
+        android:padding="5dip">
 
 
-            <ImageView
-                android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:id="@+id/imageView6"
-                android:src="@drawable/delivery"
-                android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/delivery" />
 
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Sincronizar"
-                android:textSize="23dp"
-                android:id="@+id/tvIVALabel"
-                android:layout_gravity="center"
-                android:gravity="center_vertical|center_horizontal"
-                android:paddingLeft="30dp" />
+        <TextView
+            android:id="@+id/tvIVALabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Sincronizar"
+            android:textColor="@color/standardTextColor"
+            android:textSize="23dp" />
 
     </LinearLayout>
 

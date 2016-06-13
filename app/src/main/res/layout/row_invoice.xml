@@ -2,65 +2,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/list_item_background"
     android:orientation="horizontal"
-    android:padding="25dp"
-    android:background="#dbd8d8">
+    android:padding="25dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="5dp"
-        android:padding="10dp"
-        android:layout_gravity="center">
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:padding="10dp">
 
         <ImageView
+            android:id="@+id/ivFactura"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:id="@+id/ivFactura"
-            android:src="@drawable/delivery"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@drawable/delivery" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
             android:id="@+id/tvFactura"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="New Text"
+            android:textColor="@color/standardTextColor"
+            android:textSize="@dimen/standard_text_size" />
+
+        <TextView
             android:id="@+id/tvCliente"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="New Text"
+            android:textColor="@color/standardTextColor"
+            android:textSize="@dimen/standard_text_size" />
+
+        <TextView
             android:id="@+id/tvDireccion"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/tvTelefono"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:text="New Text"
+            android:textColor="@color/standardTextColor"
+            android:textSize="@dimen/standard_text_size" />
+
+        <TextView
+            android:id="@+id/tvTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="New Text"
+            android:textColor="@color/standardTextColor"
+            android:textSize="@dimen/standard_text_size" />
     </LinearLayout>
 </LinearLayout>

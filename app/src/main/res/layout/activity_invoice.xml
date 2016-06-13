@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/appBackground"
     tools:context="com.adis.srm.sistemarepartomovil.activity.InvoiceActivity">
 
 
@@ -16,61 +16,64 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:id="@+id/linearLayout">
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvQuitar"
                 android:layout_width="105dp"
                 android:layout_height="fill_parent"
-                android:text="Quitar"
-                android:id="@+id/tvQuitar"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:textSize="18dp" />
+                android:text="Quitar"
+                android:textSize="18dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical|center_horizontal"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvEntregar"
                 android:layout_width="77dp"
                 android:layout_height="fill_parent"
-                android:text="Entregar"
-                android:id="@+id/tvEntregar"
                 android:layout_alignTop="@+id/tvQuitar"
-                android:layout_toRightOf="@+id/linearLayout"
                 android:layout_toEndOf="@+id/linearLayout"
-                android:onClick="onClickEntregar"
+                android:layout_toRightOf="@+id/linearLayout"
                 android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:textSize="18dp" />
+                android:onClick="onClickEntregar"
+                android:text="Entregar"
+                android:textSize="18dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvNoEntregado"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:text="No Entregado"
-                android:id="@+id/tvNoEntregado"
-                android:onClick="onClickNoEntregar"
                 android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:textSize="18dp" />
+                android:onClick="onClickNoEntregar"
+                android:text="No Entregado"
+                android:textSize="18dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </RelativeLayout>
@@ -82,7 +85,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="#ccc"
+        android:background="@color/appBackground"
         android:orientation="vertical">
 
         <TextView
@@ -109,49 +112,53 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_weight=".23"
                 android:background="@drawable/cell_shape"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Cant"
                 android:gravity="center_vertical|center_horizontal"
-                android:layout_weight=".23" />
+                android:text="Cant"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvDescripcionLabel"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
-                android:text="Descripción"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/tvCantidadLabel"
                 android:layout_toEndOf="@+id/tvCantidadLabel"
+                android:layout_toRightOf="@+id/tvCantidadLabel"
+                android:layout_weight=".37"
                 android:background="@drawable/cell_shape"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:gravity="center_vertical|center_horizontal"
-                android:layout_weight=".37" />
+                android:text="Descripción"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvCTLabel"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
-                android:text="C.T."
+                android:layout_weight=".2"
                 android:background="@drawable/cell_shape"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:gravity="center_vertical|center_horizontal"
-                android:layout_weight=".2" />
+                android:padding="5dp"
+                android:text="C.T."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvCULabel"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
-                android:text="C.U."
-                android:id="@+id/tvCULabel"
-                android:background="@drawable/cell_shape"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="center_vertical|center_horizontal"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/tvDescripcionLabel"
                 android:layout_toEndOf="@+id/tvDescripcionLabel"
-                android:layout_weight=".2" />
+                android:layout_toRightOf="@+id/tvDescripcionLabel"
+                android:layout_weight=".2"
+                android:background="@drawable/cell_shape"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="5dp"
+                android:text="C.U."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ListView
@@ -169,89 +176,94 @@
                 android:id="@+id/tvDescuentoLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descuento:-"
-                android:layout_marginLeft="0dp"
-                android:layout_marginStart="58dp"
+                android:layout_above="@+id/tvIVALabel"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/tvIVALabel"
                 android:layout_marginBottom="10dp"
-                android:textSize="18dp" />
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="58dp"
+                android:text="Descuento:-"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvIVALabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IVA(13%):+"
-                android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/tvDescuentoLabel"
                 android:layout_alignStart="@+id/tvDescuentoLabel"
+                android:layout_centerVertical="true"
                 android:layout_marginBottom="10dp"
-                android:textSize="18dp" />
+                android:text="IVA(13%):+"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTotalNetoLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Neto:"
-                android:layout_below="@+id/tvIVALabel"
                 android:layout_alignLeft="@+id/tvIVALabel"
                 android:layout_alignStart="@+id/tvIVALabel"
-                android:textSize="18dp" />
+                android:layout_below="@+id/tvIVALabel"
+                android:text="Total Neto:"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvSubtotalLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sub-total:"
                 android:layout_above="@+id/tvDescuentoLabel"
+
                 android:layout_alignLeft="@+id/tvDescuentoLabel"
                 android:layout_alignStart="@+id/tvDescuentoLabel"
                 android:layout_marginBottom="10dp"
-                android:textSize="18dp" />
+                android:text="Sub-total:"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$790.00"
                 android:id="@+id/tvSubtotal"
-                android:layout_alignTop="@+id/tvSubtotalLabel"
-                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="46dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/tvSubtotalLabel"
                 android:layout_marginEnd="46dp"
+                android:layout_marginRight="46dp"
+                android:text="$790.00"
                 android:textSize="18dp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$100.00"
                 android:id="@+id/tvDescuento"
-                android:layout_alignTop="@+id/tvDescuentoLabel"
-                android:layout_alignRight="@+id/tvSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/tvSubtotal"
+                android:layout_alignRight="@+id/tvSubtotal"
+                android:layout_alignTop="@+id/tvDescuentoLabel"
                 android:layout_marginBottom="10dp"
+                android:text="$100.00"
                 android:textSize="18dp" />
 
             <TextView
+                android:id="@+id/tvIVA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$102.70"
-                android:id="@+id/tvIVA"
-                android:layout_below="@+id/tvDescuento"
                 android:layout_alignLeft="@+id/tvDescuento"
                 android:layout_alignStart="@+id/tvDescuento"
+                android:layout_below="@+id/tvDescuento"
                 android:layout_marginBottom="10dp"
+                android:text="$102.70"
                 android:textSize="18dp" />
 
             <TextView
+                android:id="@+id/tvTotalNeto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$792.00"
-                android:id="@+id/tvTotalNeto"
-                android:layout_below="@+id/tvIVA"
-                android:layout_alignRight="@+id/tvIVA"
                 android:layout_alignEnd="@+id/tvIVA"
+                android:layout_alignRight="@+id/tvIVA"
+                android:layout_below="@+id/tvIVA"
+                android:text="$792.00"
                 android:textSize="18dp" />
         </RelativeLayout>
 

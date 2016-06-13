@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/appBackground"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -18,129 +19,141 @@
         android:orientation="vertical">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modificar"
             android:id="@+id/btnModificar"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimaryDark"
+            android:text="Modificar"
+            android:textColor="@color/standardTextColor" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eliminar"
             android:id="@+id/btnEliminar"
-            android:layout_gravity="center" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorSecondary"
+            android:text="Eliminar"
+            android:textColor="@color/standardTextColor" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Código"
             android:id="@+id/tvCodigoLabel"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/tvCodigo"
-            android:layout_gravity="center_horizontal"
-            android:textSize="17dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descripción"
-            android:id="@+id/tvDescripcionLabel"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/tvDescripcion"
-            android:layout_gravity="center_horizontal"
-            android:textSize="17dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Costo Unitario"
-            android:id="@+id/tvCULabel"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/tvCU"
-            android:layout_gravity="center_horizontal"
-            android:textSize="17dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descuento"
-            android:id="@+id/tvDescuentoLabel"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/tvDescuento"
-            android:layout_gravity="center_horizontal"
-            android:textSize="17dp"
-            android:layout_marginBottom="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cantidad"
-            android:id="@+id/tvCantidadLabel"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp" />
-
-        <EditText
-            android:layout_width="245dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/etCantidad"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/cell_shape"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            android:id="@+id/tvTotalLabel"
-            android:layout_gravity="center_horizontal"
+            android:text="Código"
             android:textSize="20dp"
-            android:layout_marginBottom="5dp" />
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvCodigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/tvTotal"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="New Text"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/tvDescripcionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="Descripción"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="New Text"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/tvCULabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="Costo Unitario"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="New Text"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/tvDescuentoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="Descuento"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDescuento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="New Text"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/tvCantidadLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="Cantidad"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCantidad"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/digiteCantidad"
+            android:textSize="@dimen/standard_text_size" />
+
+        <TextView
+            android:id="@+id/tvTotalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="Total"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="New Text"
             android:textSize="17dp" />
 
     </LinearLayout>

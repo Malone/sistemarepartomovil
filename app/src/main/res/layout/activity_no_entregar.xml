@@ -19,149 +19,157 @@
         android:orientation="vertical">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reportar"
             android:id="@+id/btnReportar"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimaryDark"
+            android:text="Reportar"
+            android:textColor="@color/standardTextColor" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
             android:id="@+id/btnCancelar"
-            android:layout_gravity="center" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorSecondary"
+            android:text="Cancelar"
+            android:textColor="@color/standardTextColor" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/relativeLayout"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout2"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvIdPedidoLabel"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
-                android:text="Tipo"
-                android:id="@+id/tvIdPedidoLabel"
-                android:layout_margin="5dp"
                 android:layout_centerHorizontal="true"
-                android:textSize="18dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+
+                android:text="Tipo"
+                android:textSize="@dimen/standard_text_size"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/linearLayout3">
+            android:layout_below="@+id/linearLayout2"
+            android:orientation="horizontal">
 
 
             <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_shape"
-                android:id="@+id/spinner"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/cell_shape" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/linearLayout7"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/linearLayout8">
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvIVALabel"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="No Factura"
-                android:layout_margin="5dp"
-                android:layout_centerHorizontal="true"
-                android:textSize="18dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:id="@+id/tvIVALabel" />
+                android:textSize="@dimen/standard_text_size"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/linearLayout6">
+            android:layout_below="@+id/linearLayout5"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvNoFactura"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_shape"
-                android:layout_margin="5dp"
                 android:layout_centerHorizontal="true"
-                android:textSize="16dp"
-                android:gravity="center_horizontal"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center_horizontal"
                 android:text="Aqui va el No Factura"
-                android:id="@+id/tvNoFactura" />
+                android:textSize="16dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout7"
-            android:layout_below="@+id/linearLayout3"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="40dp">
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvMotivo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:layout_centerHorizontal="true"
-                android:textSize="18dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Motivo"
-                android:id="@+id/tvMotivo" />
+                android:textSize="@dimen/standard_text_size"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <EditText
+                android:id="@+id/etMotivo"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:inputType="textMultiLine"
                 android:background="@drawable/cell_shape"
-                android:id="@+id/etMotivo" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </RelativeLayout>
