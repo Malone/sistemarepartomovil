@@ -43,8 +43,7 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
         TextView tvNoFactura = (TextView) findViewById(R.id.tvNoFactura);
         Intent intent = getIntent();
         pedido = (Pedido) intent.getExtras().getSerializable("pedido");
-        numFactura = intent.getStringExtra("invoiceNumber");
-        tvNoFactura.setText(numFactura);
+        tvNoFactura.setText(pedido.getNumeroFactura());
         final EditText etMotivo = (EditText) findViewById(R.id.etMotivo);
 
 
@@ -63,7 +62,7 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
                 reporteNoEntrega.setMotivo(etMotivo.getText().toString());
                 reporteNoEntrega.setPedido(pedido);
                 reporteNoEntrega.save();
-                Retriever.procesarPedido(numFactura, "no entregado");
+                Retriever.procesarPedido(pedido.getNumeroFactura(), "no entregado");
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoEntregarActivity.this);
                 builder.setMessage("Incidente Reportado")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener(){

@@ -176,7 +176,7 @@ public class Retriever {
     }
 
     public static Pedido getPedidoById(String numPedido) {
-        return Select.from(Pedido.class).where(Condition.prop("numeroPedido").eq(numPedido)).first();
+        return Select.from(Pedido.class).where(Condition.prop("numero_pedido").eq(numPedido)).first();
 
     }
 }
