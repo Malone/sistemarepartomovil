@@ -166,11 +166,35 @@ public class DispatchActivity extends AppCompatActivity {
         super.onRestart();
         setContentView(R.layout.activity_despatch);
 
+        List<FacturaListView> facturaList;
+
+        if(scannedFacturaView != null) {
+            facturaList = new ArrayList<FacturaListView>();
+            facturaList.add(scannedFacturaView);
+        }else{
+            facturaList = Retriever.retrieveFacturaList();
+        }
+
         SugarContext.init(this);
 
-        List<FacturaListView> facturaList = Retriever.retrieveFacturaList();
+
         lvInvoices = (ListView) findViewById(R.id.lvInvoices);
         final EditText etSearchInvoice = (EditText) findViewById(R.id.edSearchInvoice);
+
+        final Activity activity = this;
+        Button btnScan = (Button) findViewById(R.id.btnScan);
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Scan");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
+            }
+        });
 
         etSearchInvoice.setOnKeyListener(new View.OnKeyListener() {
             @Override
