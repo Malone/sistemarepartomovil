@@ -1,13 +1,12 @@
 package com.adis.srm.sistemarepartomovil.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adis.srm.sistemarepartomovil.R;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
@@ -57,15 +56,9 @@ public class EntregarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Retriever.procesarPedido(numFactura,"entregado");
-                AlertDialog.Builder builder = new AlertDialog.Builder(EntregarActivity.this);
-                builder.setMessage("Pedido entregado")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener(){
-                            public void onClick(DialogInterface dialog, int d){
-                                EntregarActivity.this.finish();
-                            }
-                        })
-                        .create()
-                        .show();
+                Toast.makeText(EntregarActivity.this, "Pedido Entregado", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(EntregarActivity.this, DispatchActivity.class);
+                EntregarActivity.this.startActivity(intent);
             }
         });
 

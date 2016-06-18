@@ -47,8 +47,12 @@ public class Retriever {
     }
 
     public static FacturaListView getFacturaViewByNumFactura(String numFactura){
-        List<Pedido> pedidoList = Pedido.listAll(Pedido.class);
+        List<Pedido> pedidoList = Pedido.find(Pedido.class, "numero_factura = ? and estado = ?", numFactura, "en proceso");
+        //List<Pedido> pedidoList = Pedido.listAll(Pedido.class);
         FacturaListView facturaListView = new FacturaListView();
+        if(pedidoList.size() == 0){
+            return facturaListView;
+        }
         for(Pedido pedido : pedidoList){
             if(numFactura.equalsIgnoreCase(pedido.getNumeroFactura())){
                 facturaListView.setNumPedido(String.valueOf(pedido.getNumeroPedido()));

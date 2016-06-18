@@ -1,9 +1,7 @@
 package com.adis.srm.sistemarepartomovil.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adis.srm.sistemarepartomovil.R;
 import com.adis.srm.sistemarepartomovil.entity.Pedido;
@@ -40,6 +39,7 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         Button btnReportar = (Button) findViewById(R.id.btnReportar);
+        Button btnCancelar = (Button) findViewById(R.id.btnCancelar);
         TextView tvNoFactura = (TextView) findViewById(R.id.tvNoFactura);
         Intent intent = getIntent();
         pedido = (Pedido) intent.getExtras().getSerializable("pedido");
@@ -57,21 +57,27 @@ public class NoEntregarActivity extends AppCompatActivity implements AdapterView
         btnReportar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ReporteNoEntrega reporteNoEntrega = new ReporteNoEntrega();
-                reporteNoEntrega.setIdNoEntrega(idNoEntrega);
-                reporteNoEntrega.setMotivo(etMotivo.getText().toString());
-                reporteNoEntrega.setPedido(pedido);
-                reporteNoEntrega.save();
-                Retriever.procesarPedido(pedido.getNumeroFactura(), "no entregado");
-                AlertDialog.Builder builder = new AlertDialog.Builder(NoEntregarActivity.this);
-                builder.setMessage("Incidente Reportado")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener(){
-                            public void onClick(DialogInterface dialog, int d){
-                                NoEntregarActivity.this.finish();
-                            }
-                        })
-                        .create()
-                        .show();
+                if(etMotivo.getText().toString().length() > 0){
+                    ReporteNoEntrega reporteNoEntrega = new ReporteNoEntrega();
+                    reporteNoEntrega.setIdNoEntrega(idNoEntrega);
+                    reporteNoEntrega.setMotivo(etMotivo.getText().toString());
+                    reporteNoEntrega.setPedido(pedido);
+                    reporteNoEntrega.save();
+                    Retriever.procesarPedido(pedido.getNumeroFactura(), "no entregado");
+                    Toast.makeText(NoEntregarActivity.this, "Incidente Reportado", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(NoEntregarActivity.this, DispatchActivity.class);
+                    NoEntregarActivity.this.startActivity(intent);
+                }
+                else{
+                    Toast.makeText(NoEntregarActivity.this, "Reporte el motivo de no entrega", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NoEntregarActivity.this.finish();
             }
         });
 

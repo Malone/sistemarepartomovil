@@ -100,7 +100,7 @@ public class JsonParserPersister {
             Long cantidad = productoJson.getLong("cantidad");
             BigDecimal costoUnitario = BigDecimal.valueOf(productoJson.getDouble("costo_unitario"));
             BigDecimal descuento = BigDecimal.valueOf(productoJson.getDouble("descuento"));
-            BigDecimal costoTotal = getCostoTotal(cantidad, costoUnitario);
+            BigDecimal costoTotal = getCostoTotal(cantidad, costoUnitario, descuento);
             String descripcion = productoJson.getString("descripcion");
             Producto producto = new Producto(id, nombre, cantidad, costoUnitario, costoTotal, descuento, descripcion, pedido);
             producto.save();
@@ -110,11 +110,16 @@ public class JsonParserPersister {
 
     }
 
-    public static BigDecimal getCostoTotal(Long cantidad, BigDecimal costoUnitario){
-
+    public static BigDecimal getCostoTotal(Long cantidad, BigDecimal costoUnitario, BigDecimal descuento){
         BigDecimal costoTotal;
+        BigDecimal descuentoTotal;
+        BigDecimal costo;
         BigDecimal quantity = new BigDecimal(cantidad);
-        costoTotal = quantity.multiply(costoUnitario).setScale(2, RoundingMode.CEILING);
+        BigDecimal ciento = new BigDecimal("100");
+        BigDecimal percentDescuento = descuento.divide(ciento);
+        descuentoTotal = quantity.multiply(costoUnitario).multiply(percentDescuento).setScale(2, RoundingMode.FLOOR);
+        costo = quantity.multiply(costoUnitario).setScale(2, RoundingMode.CEILING);
+        costoTotal = costo.subtract(descuentoTotal).setScale(2, RoundingMode.CEILING);
         return costoTotal;
 
     }

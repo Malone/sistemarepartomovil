@@ -6,9 +6,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adis.srm.sistemarepartomovil.R;
 import com.adis.srm.sistemarepartomovil.entity.Producto;
@@ -38,6 +40,7 @@ public class EditInvoiceItemActivity extends AppCompatActivity {
         TextView tvCU = (TextView) findViewById(R.id.tvCU);
         TextView tvDescuento = (TextView) findViewById(R.id.tvDescuento);
         final EditText etCantidad = (EditText) findViewById(R.id.etCantidad);
+        etCantidad.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
         TextView tvTotal = (TextView) findViewById(R.id.tvTotal);
 
         tvCodigo.setText(String.valueOf(producto.getIdProducto()));
@@ -51,11 +54,16 @@ public class EditInvoiceItemActivity extends AppCompatActivity {
         btnModificar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Long cantidad = Long.valueOf(etCantidad.getText().toString());
-                modifyCTIVA(cantidad, producto);
-                registrarModificacion(cantidad, producto, numFactura);
-                finish();
-                startActivity(getIntent());
+                if(etCantidad.getText().toString().length() > 0){
+                    Long cantidad = Long.valueOf(etCantidad.getText().toString());
+                    modifyCTIVA(cantidad, producto);
+                    registrarModificacion(cantidad, producto, numFactura);
+                    finish();
+                    startActivity(getIntent());
+                }
+                else{
+                    Toast.makeText(EditInvoiceItemActivity.this, "Digite una cantidad", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -94,7 +102,7 @@ public class EditInvoiceItemActivity extends AppCompatActivity {
     }
 
     private void modifyCTIVA(Long cantidad, Producto producto){
-        BigDecimal costoTotal = JsonParserPersister.getCostoTotal(cantidad, producto.getCostoUnitario());
+        BigDecimal costoTotal = JsonParserPersister.getCostoTotal(cantidad, producto.getCostoUnitario(), producto.getDescuento());
         producto.setCostoTotal(costoTotal);
         producto.setIva(costoTotal);
         producto.setCantidad(cantidad);
