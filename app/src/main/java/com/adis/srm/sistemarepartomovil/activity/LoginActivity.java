@@ -45,8 +45,10 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             String success = jsonResponse.getString("response");
+                            String sessionid = jsonResponse.getString("sessionid");
                             if("SUCCESS".equalsIgnoreCase(success)){
                                 Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                intent.putExtra("sessionid", sessionid);
                                 LoginActivity.this.startActivity(intent);
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);

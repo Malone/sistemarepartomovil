@@ -18,10 +18,14 @@ import org.json.JSONException;
 
 public class MenuActivity extends AppCompatActivity {
 
+    private String sessionId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        sessionId = getIntent().getStringExtra("sessionid");
 
         Response.Listener<String> responseListener = new Response.Listener<String>(){
             @Override
@@ -36,7 +40,11 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void despatchOnClick(View view){
+
+        sessionId = getIntent().getStringExtra("sessionid");
+
         Intent intent = new Intent(MenuActivity.this, DispatchActivity.class);
+        intent.putExtra("sessionid", sessionId);
         MenuActivity.this.startActivity(intent);
     }
 

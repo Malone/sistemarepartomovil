@@ -33,9 +33,9 @@ public class JsonConstructor {
 
         Repartidor repartidor = Retriever.getRepartidor();
 
-        repartidorJson.put("id", repartidor.getIdRepartidor());
+        repartidorJson.put("idRepartidor", repartidor.getIdRepartidor());
         repartidorJson.put("nombre", repartidor.getNombre());
-        repartidorJson.put("ruta", repartidor.getRuta());
+        repartidorJson.put("idRuta", repartidor.getRuta());
         repartidorJson.put("almacen", repartidor.getAlmacen());
         repartidorJson.put("fecha_consulta", repartidor.getFechaConsulta());
 
@@ -44,7 +44,7 @@ public class JsonConstructor {
         List<Pedido> pedidoList = Retriever.getPedidos();
         for(Pedido pedido : pedidoList){
             JSONObject pedidoJson = new JSONObject();
-            pedidoJson.put("numero_pedido", pedido.getNumeroPedido());
+            pedidoJson.put("idPedido", pedido.getNumeroPedido());
             pedidoJson.put("fecha_solicitud", pedido.getFechaSolicitud());
             pedidoJson.put("numero_factura", pedido.getNumeroFactura());
             pedidoJson.put("estado", pedido.getEstado());
@@ -59,7 +59,7 @@ public class JsonConstructor {
             pedidoJson.put("cliente", clienteJson);
             pedidoJson.put("productos", productoArray);
             Cliente cliente = Retriever.getClienteByIdPedido(pedido);
-            clienteJson.put("id_cliente", cliente.getIdCliente());
+            clienteJson.put("idCliente", cliente.getIdCliente());
             clienteJson.put("nombre", cliente.getName());
             clienteJson.put("direccion", cliente.getDireccion());
             clienteJson.put("DUI", cliente.getDui());
@@ -69,10 +69,10 @@ public class JsonConstructor {
             productoList = Retriever.getProductosByIdPedido(String.valueOf(pedido.getId()));
             for(Producto producto : productoList){
                 JSONObject productoJson = new JSONObject();
-                productoJson.put("id", producto.getIdProducto());
+                productoJson.put("idProducto", producto.getIdProducto());
                 productoJson.put("nombre", producto.getNombre());
-                productoJson.put("cantidad", producto.getCantidad());
-                productoJson.put("costo_unitario", producto.getCostoUnitario());
+                productoJson.put("stock", producto.getCantidad());
+                productoJson.put("precio", producto.getCostoUnitario());
                 productoJson.put("descuento", producto.getDescuento());
                 productoJson.put("descripcion", producto.getDescripcion());
                 productoArray.put(productoJson);
